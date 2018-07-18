@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin-panel</title>
+</head>
+<body>
+<div class="container">
+
+    <h4>email</h4><br>
+    <input type="text" id="email">
+    <h4>password</h4><br>
+    <input type="text" id="password">
+    <h4>role:</h4><br>
+
+    <script src="index.js"></script>
+</div>
+<script>
+    // var login = $('#login').val(); получаем логин с формы ( инпута )
+    //
+    // $.ajax({
+    //     type: "POST",
+    //     url: "",
+    //     cache: false,
+    //     data: { login : login }, // тут передаем его на сервер , там делаем запрос в базу , формируем результат
+    //     success: function(data) {
+    //         // и здесь возвращаем
+    //         alert(data);
+    //     }
+    // });
+
+    $.ajax({
+        url:"http://localhost:8080/public/create",
+        type:"GET",
+        contentType:"application/json",
+        headers: {
+            "Authorize":"Bearer " + localStorage.getItem("token")
+        },
+        success:function(data){
+            for(var i =0;i<data.length;i++){
+                $("#listPerson").append("<li>"+data[i].role+" "+data[i].password+" "+data[i].email+
+                    "</li>");
+            }
+
+        },
+        error:function(error){
+            console.log(error);
+        }
+    });
+
+
+    $("#changeBackround").click(function(){
+        var person = {
+            email:$("#email").val(),
+            password:$("#password").val(),
+            role:$("#role").val()
+        };
+        $.ajax({
+            url:"http://localhost:8080/public/create",
+            type:"POST",
+            contentType:"application/json",
+            data:JSON.stringify(person),
+            success:function(data){
+                alert("SUCCESS");
+                alert(data);                     localStorage.setItem('token', data);
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

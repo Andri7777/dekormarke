@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3 ">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+<!--<div th:if="${param.error}">-->
+<!--Invalid username and password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--You have been logged out.-->
+<!--</div>-->
+<!--<div th:if="${param.email}"></div>-->
+<!--<form th:action="@{/login}" method="post">-->
+<!--<div><label> Login : <input type="email" id="email"/> </label></div>-->
+<!--<div><label> Password: <input type="password" id="password"/> </label></div>-->
+<!--<div><label> role: <input type="text" id="role"/> </label></div>-->
+<!--<div><input id="changeBackround" type="submit" value="Sign In"/></div>-->
+<!--</form>-->
+
+
+<h4>email</h4><br>
+<input type="text" id="email">
+<h4>password</h4><br>
+<input type="text" id="password">
+<!--<h4>role</h4><br>-->
+<!--<input type="text" id="role">-->
+
+
+<div id="content">
+    <button
+            id="changeBackround">Change</button>
+</div>
+<script>
+
+    $.ajax({
+        url:"http://localhost:8080/public/login",
+        type:"GET",
+        contentType:"application/json",
+        success:function(data){
+            for(var i =0;i<data.length;i++){
+                $("#listPerson").append("<li>"+" "+data[i].password+" "+data[i].login+
+                    "</li>");
+            }
+
+        },
+        error:function(error){
+            console.log(error);
+        }
+    });
+
+
+    $("#changeBackround").click(function(){
+        var person = {
+            email:$("#email").val(),
+            password:$("#password").val()
+
+        };
+        $.ajax({
+            url:"http://localhost:8080/public/login",
+            type:"POST",
+            contentType:"application/json",
+            data:JSON.stringify(person),
+            success:function(data){
+                $("#listPerson").append("<li>"+" "+data.password+" "+data.login+
+                    "</li>");
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

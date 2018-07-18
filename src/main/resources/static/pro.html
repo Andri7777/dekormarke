@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <title>AJAX – вывод товаров</title>
+</head>
+<body>
+<?php
+echo '
+//печатаем начало элемента <select>
+<select name="category_id" onchange="show_products(this.value)">
+    <option value="0">выберите категорию</option>
+    ';
+    //выводим список категорий:
+    foreach ($categoryes as $category) {
+    echo '<option value="'.$category['category_id'].'">'.stripslashes($category ['category_name']).'</option>';
+    }
+    echo '
+</select>
+';
+?>
+<div id="prod_select" style="display:none; background-color:#EEEEEE; padding:4px; margin:5px;"></div>
+<div id="prod_details" style="display:none; background-color:#EEEEEE; padding:4px; margin:5px;"></div>
+</body>
+</html>

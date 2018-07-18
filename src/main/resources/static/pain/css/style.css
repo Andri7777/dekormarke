@@ -1,0 +1,146 @@
+header,nav,section,footer,aside{
+    display: block;
+}
+
+*{
+    margin: 0 ;
+    padding: 0 ;
+}
+header{
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(to top right,black 90%,white);
+}
+nav {
+    float: right;
+    margin-right: 15px;
+}
+nav>ol>li{
+    float: left;
+    color: azure;
+    list-style: none;
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+nav>ol>li:hover{
+    color: bisque;
+}
+nav>ol>li>a{
+    display: block;
+    padding: 15px 30px 15px 40px;
+    font-size: 17px;
+    background: #000000;
+    color:chartreuse;
+    text-decoration: none;
+}
+#picture{
+    width: 100%;
+    height: 700px;
+    background-image: url(../img/imbianchinon-e-imbiancatura-a-milano.jpg);
+}
+footer{
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(to top right,silver 90%,white);
+}
+#content{
+
+    height:500px;
+
+}
+#leftBar{
+    float: left;
+    height:auto;
+    width:auto;
+    border: 2px solid white;
+    margin-top: 100px;
+
+}
+#leftBar>ol>li{
+    list-style: none;
+    color: azure;
+    margin: 10px;
+}
+/*body{*/
+/*background-image: url("../img/8b2b0cea9c44.jpg") ;*/
+
+/*}*/
+/**/
+#content2{
+    width: 100%;
+    height: 160px;
+    background-color: #1a394f;
+}
+#search-form{
+    width: 250px;
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #999999;
+    border-radius: 40px;
+    outline: none;
+
+}
+.col-sidebar{
+    margin: 60px 600px;
+    float: right;
+}
+.container-form button{
+    background-color: none;
+}
+/**/
+
+#content5{
+    text-align: center;
+    height: 100px;
+    background: black;
+    color: chartreuse;
+}
+#content6{
+    width: 100%;
+    background: black;
+}
+.style img{
+    /*border: 2px solid #55c5e9; !* Рамка вокруг фотографии *!*/
+    padding: 15px; /* Расстояние от картинки до рамки */
+    /*background: #666; !* Цвет фона *!*/
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+
+nav{
+    float: right;
+    list-style: none;
+    margin-right: 15px;
+    color: #3adbfd;
+}
+nav>ol>li{
+    float: left;
+    color: #6ee9fd;
+    list-style: none;
+}
+#content3{
+
+    height: 500px;
+
+}
+#rigBar{
+    float: right;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    margin: 35px;
+    background-color: #999999;
+    border-radius: 7px;
+}
+#rigBar>ul>li{
+    list-style: none;
+    color: azure;
+    margin: 10px;
+    border-radius: 5px;
+}
+#changeBackground{
+    margin: 10px 0 30px 70px;
+}

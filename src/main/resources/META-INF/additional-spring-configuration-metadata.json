@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "secured.url.pattern",
+      "type": "java.lang.String",
+      "description": "Description for secured.url.pattern."
+    },
+    {
+      "name": "external.url.pattern",
+      "type": "java.lang.String",
+      "description": "Description for external.url.pattern."
+    }
+  ] }

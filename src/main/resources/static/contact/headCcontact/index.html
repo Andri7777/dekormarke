@@ -1,0 +1,148 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="/public/astatic.css/style.css"/>
+        <link rel="stylesheet" href="/public/contact/css/style.css"/>
+
+
+        <script>
+            document.createElement("header");
+            document.createElement("nav");
+            document.createElement("section");
+            document.createElement("footer");
+        </script>
+
+    </head>
+    <body>
+
+    <header>
+        <img src="/public/img/5_White_logo_on_black_176x71.png">
+        <nav>
+            <ol>>
+                <li><a href="/public/head/head/index.html"><i class="fa fa-">Main</i> </a></li>
+                <li><a href="#"><i class="fa fa-"></i>Catalog</a></li>
+                <li><a href="/public/product/head/index.html"><i class="fa fa-"></i>Production</a></li>
+                <li><a href="/public/portfolio/head/index.html"><i class="fa fa-"></i>Portfolio</a></li>
+                <li><a href="/public/registry/htmlRegistry/index.html"><i class=""></i>Registry</a></li>
+            </ol>
+        </nav>
+    </header>
+
+    <div content="content2" id="content2">
+    <aside class="col-sidebar">
+        <form action="#">
+            <input type="text" id="search-form" name="search" placeholder='search' >
+            <button type="button" id="content4"></button>
+        </form>
+    </aside>
+    </div>
+
+    <div class="col-sidebarText">
+        <h1 id="content5">Contakts</h1>
+
+        <p>
+                Что же из себя представляет декоративная штукатурка? В состав декоративной штукатурки входит связующий компонент, наполнитель и различные добавки - такие, как растворитель, загуститель, антисептики, водоотталкивающие и биоцидные вещества. По типу связующего компонента декоративную штукатурку делят два класса – штукатурки на водной основе и штукатурки на неводной основе. В качестве наполнителей в декоративных штукатурках могут использоваться крошки натуральных и искусственных минералов, волокна льна, шелка, хлопка и т.д. Кроме того, декоративная штукатурка различается и по способу ее нанесения на поверхность.
+
+                Главное преимущество декоративной штукатурки на водной основе – это ее высокая экологичность. Наиболее встречающимися связующими компонентами декоративной штукатурки на водной основе являются акриловые, стирол-акриловые, поливинилацетатные (ПВА) и бутадиен-стирольные дисперсии. Такая декоративная штукатурка  имеет богатую палитру цветов, образует водостойкое, но пропускающее водяные пары покрытие,  достаточно устойчива к различным повреждениям, не выгорает со временем, легко поддается чистке.
+
+                Декоративная штукатурка на неводной основе в качестве связующих компонентов имеет эпоксидные смолы и полиуретаны.  Их неоспоримые достоинства – это высокая износостойкость покрытий, устойчивость к агрессивным средам, прочность и хорошее сцепление с основанием. Декоративная штукатурка на эпоксидной основе применяются только для внутренних работ, в то время как декоративную штукатурку на полиуретановой основе можно использовать и для внешних отделочных работ.
+
+                Декоративная штукатурка - это не только удобство, долговечность и высокая стойкость к механическим воздействиям, но и изящество и красота.  Благодаря широкой гамме цветов, оригинальности фактур и оттенков, ее широко применяют для создания неповторимого, уникального интерьера. Кроме того, декоративная штукатурка абсолютно экологична и гипоаллергенна, поэтому покрытие стен декоративной штукатуркой отвечает самым высоким строительным и  гигиеническим и нормам.
+        </p>
+    </div>
+
+
+
+
+
+
+    <section id="picture">
+    <section id="content3">
+        <aside id="leftBar"></aside>
+        <aside id="rigBar">
+
+
+
+        <h4>FirstName</h4><br>
+        <input type="text" id="firstNamePerson">
+        <h4>LastName</h4><br>
+        <input type="text" id="lastNamePerson">
+        <h4>Phone:</h4><br>
+        <input type="text" id="phonePerson">
+        <h4>Address</h4><br>
+        <input type="text" id="addressPerson">
+        <h4>CityAndRegion</h4><br>
+        <input type="text" id="cityAndRegionPerson">
+
+
+
+    <div id="content">
+        <button
+                id="changeBackround">Change</button>
+    </div>
+
+
+
+        </aside>
+    </section>
+
+    </section>
+
+
+    <script>
+
+        $.ajax({
+            url:"http://localhost:8080/person1/",
+            type:"GET",
+            contentType:"application/json",
+            success:function(data){
+                for(var i =0;i<data.length;i++){
+                    $("#listPerson").append("<li>"+data[i].firstName+" "+data[i].lastName+" "+data[i].phone+" "+data[i].address+" "+data[i].cityAndRegion+
+                        "</li>");
+                }
+
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+
+
+        $("#changeBackround").click(function(){
+            var person = {
+                firstName:$("#firstNamePerson").val(),
+                lastName:$("#lastNamePerson").val(),
+                phone:$("#phonePerson").val(),
+                address:$("#addressPerson").val(),
+                cityAndRegion:$("#cityAndRegionPerson").val()
+            };
+            $.ajax({
+                url:"http://localhost:8080/person1/",
+                type:"POST",
+                contentType:"application/json",
+                data:JSON.stringify(person),
+                success:function(data){
+                    $("#listPerson").append("<li>"+data.firstName+" "+data.lastName+" "+data.phone+" "+data.address+" "+data.cityAndRegion+
+                        "</li>");
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <footer>
+
+    </footer>
+    </body>
+    </html>
